@@ -1,5 +1,9 @@
-// import { Provider } from "react-redux"
-// import { BrowserRouter, Route, Routes } from "react-router-dom"
+import { Provider } from "react-redux"
+import { BrowserRouter, Route, Routes } from "react-router-dom"
+
+import MainLayout from "./components/layout/MainLayout"
+import { LanguageProvider } from "./i18n"
+import { store } from "./store"
 
 function App() {
 
@@ -9,9 +13,9 @@ function App() {
     
     <>
      
-    {/* //  <Provider store={store}> */}
+      <Provider store={store}> 
      
-     {/* <LanguageProvider> */}
+      <LanguageProvider> 
      
        {/* <ThemeSync /> */}
        
@@ -28,13 +32,14 @@ function App() {
              <Route path="/dashboard" element={<Dashboard />} />
              <Route path="/transactions" element={<Transactions />} /> */}
              {/* ... digər səhifələr */}
-           {/* </Route>
-         </Routes>
-       </BrowserRouter> */}
-
-     {/* </LanguageProvider> */}
-  {/* //  </Provider> */}
+             <MainLayout/>
   <p>SS</p>
+            {/* </Route> */}
+         {/* </Routes>
+       </BrowserRouter>  */}
+
+      </LanguageProvider> 
+    </Provider> 
   </>
   )
 }
