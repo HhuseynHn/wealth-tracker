@@ -5,8 +5,7 @@ import MainLayout from "./components/layout/MainLayout"
 import { LanguageProvider } from "./i18n"
 import { store } from "./store"
 import { Dashboard, Transactions, Welcome } from "./pages"
-import { LoginForm, RegisterForm } from "./components/auth"
-import ProtectedRoute from "./components/auth/PretectedRoute"
+import { LoginForm, ProtectedRoute, RegisterForm } from "./components/auth"
 
 function App() {
 
@@ -21,26 +20,25 @@ function App() {
       <LanguageProvider> 
      
        {/* <ThemeSync /> */}
-       
-     
+           
         <BrowserRouter>
          <Routes> 
            
             <Route path="/" element={<Welcome />} />
-           {/* <Route path="/login" element={<LoginForm />} />
-           <Route path="/register" element={<RegisterForm />} />  */}
+            <Route path="/login" element={<LoginForm />} />
+           <Route path="/register" element={<RegisterForm />} /> 
 
            {/* Protected Routes - Giriş edilməlidir */}
-            {/* <Route element={<ProtectedRoute><MainLayout /></ProtectedRoute>}/>
+           
+             <Route element={<ProtectedRoute> <MainLayout /> </ProtectedRoute>}/>
              <Route path="/dashboard" element={<Dashboard />} />
-             <Route path="/transactions" element={<Transactions />} />  */}
+             <Route path="/transactions" element={<Transactions />} /> 
              {/* ... digər səhifələr */}
-             <MainLayout/>
-  
+               
             {/* </Route> */}
+
         </Routes>
        </BrowserRouter>  
-
       </LanguageProvider> 
     </Provider> 
   </>
