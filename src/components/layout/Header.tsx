@@ -12,9 +12,9 @@ import {
 import { useAppDispatch, useAppSelector } from '../../store/hooks'
 import { logout } from '../../store/authSlice'
 import { useLanguage } from '../../i18n'
-// import { LanguageSwitcher, ThemeToggle } from '../common'
-// import { NotificationDropdown } from '../notifications'
-// import { ProBadge } from '../subscription'
+import { LanguageSwitcher, ThemeToggle } from '../common'
+import { ProBadge } from '../subscription'
+import { NotificationDropdown } from '../notfications'
 
 interface HeaderProps {
   onMenuClick: () => void
@@ -69,13 +69,13 @@ const Header = ({ onMenuClick }: HeaderProps) => {
           )}
 
           {/* Theme Toggle */}
-          {/* <ThemeToggle variant="dropdown" /> */}
+          <ThemeToggle variant="dropdown" />
 
           {/* Language Switcher */}
-          {/* <LanguageSwitcher /> */}
+          <LanguageSwitcher />
 
           {/* Notifications */}
-          {/* <NotificationDropdown /> */}
+          <NotificationDropdown />
 
           {/* User Menu */}
           <Menu as="div" className="relative">
@@ -112,7 +112,7 @@ const Header = ({ onMenuClick }: HeaderProps) => {
                 <div className="px-3 py-2 border-b border-slate-100 dark:border-gray-700 mb-1">
                   <div className="flex items-center gap-2">
                     <p className="text-sm font-medium text-slate-800 dark:text-white">{user?.name}</p>
-                    {/* {currentPlan !== 'free' && <ProBadge size="sm" showLock={false} />} */}
+                    {currentPlan !== 'free' && <ProBadge size="sm" showLock={false} />}
                   </div>
                   <p className="text-xs text-slate-500 dark:text-gray-400 truncate">{user?.email}</p>
                 </div>

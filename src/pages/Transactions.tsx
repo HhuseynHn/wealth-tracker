@@ -22,7 +22,7 @@ import {
   selectTransactionStats,
 } from '../store/transactionSlice'
 import { CATEGORIES, getCategoryInfo, TransactionCategory, TransactionType, Transaction } from '../types/transaction'
-import { sendNotification } from '../utils/demoNotifications'
+// import { sendNotification } from '../utils/demoNotifications'
 
 const Transactions = () => {
   const { t, currentLanguage } = useLanguage()
@@ -93,7 +93,7 @@ const Transactions = () => {
         date: new Date(formData.date).toISOString(),
       }))
       // Send notification
-      sendNotification('transactionAdded', formData.type, amount)
+      // sendNotification('transactionAdded', formData.type, amount)
     }
 
     setIsModalOpen(false)
