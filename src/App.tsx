@@ -1,48 +1,106 @@
-import { Provider } from "react-redux"
-import { BrowserRouter, Route, Routes } from "react-router-dom"
+  import { Provider } from "react-redux"
+  import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom"
 
-import MainLayout from "./components/layout/MainLayout"
-import { LanguageProvider } from "./i18n"
-import { store } from "./store"
-import { Dashboard, Transactions, Welcome } from "./pages"
-import { LoginForm, ProtectedRoute, RegisterForm } from "./components/auth"
+  import MainLayout from "./components/layout/MainLayout"
+  import { LanguageProvider } from "./i18n"
+  import { store } from "./store"
+  import { Dashboard, Goals, Investments, Notifications, Pricing, Profile, Reports, Transactions, Welcome } from "./pages"
+  import { LoginForm, ProtectedRoute, RegisterForm } from "./components/auth"
+  import { useEffect } from "react"
+  import { useAppDispatch } from "./store/hooks"
+  import { syncWithSystem } from "./store/themeSlice"
+  import ThemeEffect from "./components/common/ThemeEffect"
 
-function App() {
 
-  
-  return (
+  // Sync theme with system preference
+  // const ThemeSync = () => {
+  //   useEffect(() => {
+  //     const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
+  //     const handleChange = () => {
+  //       const theme = localStorage.getItem('wt_theme')
+  //       if (theme === 'system') {
+  //         const html = document.documentElement
+  //         html.classList.remove('light', 'dark')
+  //         html.classList.add(mediaQuery.matches ? 'dark' : 'light')
+  //       }
+  //     }
+  //     console.log("THEMM")
+      
+  //     mediaQuery.addEventListener('change', handleChange)
+  //     return () => mediaQuery.removeEventListener('change', handleChange)
+  //   }, [])
     
+  //   return null
+  // }
+
+
+  const ThemeSync = () => {
+    const dispatch = useAppDispatch()
+  console.log("TemSync")
+    useEffect(() => {
+      const mq = window.matchMedia("(prefers-color-scheme: dark)")
+      const handler = () => dispatch(syncWithSystem())
+
+      mq.addEventListener("change", handler)
+      return () => mq.removeEventListener("change", handler)
+    }, [dispatch])
+
+    return null
+  }
+
+
+
+
+
+
+
+
+  function App() {
+
     
-    <>
-     
-      <Provider store={store}> 
-     
-      <LanguageProvider> 
-     
-       {/* <ThemeSync /> */}
-           
-        <BrowserRouter>
-         <Routes> 
-           
-            <Route path="/" element={<Welcome />} />
-            <Route path="/login" element={<LoginForm />} />
-           <Route path="/register" element={<RegisterForm />} /> 
+    return (
+      
+      
+      <>
+      
+        <Provider store={store}> 
+      
+        <LanguageProvider> 
+      
+        <ThemeSync />
+        <ThemeEffect/>
+            
+          <BrowserRouter>
+          <Routes> 
+            
+              <Route path="/" element={<Welcome />} />
+              <Route path="/login" element={<LoginForm />} />
+            <Route path="/register" element={<RegisterForm />} /> 
 
-           {/* Protected Routes - Giriş edilməlidir */}
-           
-             <Route element={<ProtectedRoute> <MainLayout /> </ProtectedRoute>}/>
-             <Route path="/dashboard" element={<Dashboard />} />
-             <Route path="/transactions" element={<Transactions />} /> 
-             {/* ... digər səhifələr */}
-               
-            {/* </Route> */}
+            {/* Protected Routes - Giriş edilməlidir */}
+            
+              <Route element={<ProtectedRoute> <MainLayout /> </ProtectedRoute>}>
+              
+              <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="/transactions" element={<Transactions />} />
+                <Route path="/investments" element={<Investments />} />
+                <Route path="/goals" element={<Goals />} />
+                <Route path="/reports" element={<Reports />} />
+                <Route path="/profile" element={<Profile />} />
+                <Route path="/pricing" element={<Pricing />} />
+                <Route path="/notifications" element={<Notifications />} />
+              
+                </Route>
 
-        </Routes>
-       </BrowserRouter>  
-      </LanguageProvider> 
-    </Provider> 
-  </>
-  )
-}
+  {/* Redirect unknown routes to welcome */}
+  <Route path="*" element={<Navigate to="/" replace />} />
 
-export default App
+          </Routes>
+        </BrowserRouter>  
+        </LanguageProvider> 
+      </Provider> 
+    </>
+    )
+  }
+
+  export default App

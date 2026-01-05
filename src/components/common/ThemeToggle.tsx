@@ -22,12 +22,12 @@ export const ThemeToggle = ({ variant = 'icon' }: ThemeToggleProps) => {
 
   const handleSetTheme = (newTheme: Theme) => {
     dispatch(setTheme(newTheme))
-  }
+      }
 
   const themes: { value: Theme; label: string; icon: typeof SunIcon }[] = [
     { value: 'light', label: t.theme.light, icon: SunIcon },
     { value: 'dark', label: t.theme.dark, icon: MoonIcon },
-    { value: 'system', label: t.theme.system, icon: ComputerDesktopIcon },
+    // { value: 'system', label: t.theme.system, icon: ComputerDesktopIcon },
   ]
 
   if (variant === 'icon') {
