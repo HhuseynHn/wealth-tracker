@@ -89,6 +89,8 @@ const Welcome = () => {
               <div>
                 <p className="font-medium text-white text-sm">{feature.title}</p>
                 <p className="text-xs text-slate-400">{feature.description}</p>
+                
+
               </div>
             </motion.div>
           ))}

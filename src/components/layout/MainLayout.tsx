@@ -51,7 +51,7 @@ const MainLayout = () => {
         <Header onMenuClick={() => setSidebarOpen(true)} />
 
         {/* Page Content */}
-        <main className="p-4 lg:p-8">
+        <main className="p-4 lg:p-8 ">
           <Outlet />
         </main>
       </div>
