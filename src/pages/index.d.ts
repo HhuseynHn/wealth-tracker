@@ -1,0 +1,10 @@
+export { default as Welcome } from './Welcome';
+export { default as Dashboard } from './Dashboard';
+export { default as Transactions } from './Transactions';
+export { default as Investments } from './Investments';
+export { default as Goals } from './Goals';
+export { default as Reports } from './Reports';
+export { Profile } from './Profile';
+export { Pricing } from './Pricing';
+export { default as Notifications } from './Notifications';
+//# sourceMappingURL=index.d.ts.map

@@ -1,5 +1,5 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { NotificationState, Notification, CreateNotificationDTO } from '../types/notification'
+import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
+import type { NotificationState, Notification, CreateNotificationDTO } from '../types/notification'
 
 // Get notifications from localStorage
 const loadNotifications = (): Notification[] => {

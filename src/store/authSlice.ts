@@ -1,15 +1,15 @@
-import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit'
+import { createSlice, createAsyncThunk, type PayloadAction } from '@reduxjs/toolkit'
 import type { AuthState, LoginCredentials, User } from '../types'
 
 // Register credentials interface
-interface RegisterCredentials {
+export interface RegisterCredentials {
   name: string
   email: string
   password: string
 }
 
 // Extended auth state with registration success
-interface ExtendedAuthState extends AuthState {
+export interface ExtendedAuthState extends AuthState {
   registrationSuccess: boolean
 }
 

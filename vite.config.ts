@@ -9,6 +9,7 @@ export default defineConfig({
       },
     }),
   ],
+  base: "/wealth-tracker/",
   resolve: {
     alias: {
       "@": "/src",

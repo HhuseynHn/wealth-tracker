@@ -24,8 +24,8 @@ import {
   GOAL_CATEGORIES,
   getGoalCategoryInfo,
   calculateGoalProgress,
-  GoalCategory,
-  FinancialGoal,
+  type GoalCategory,
+  type FinancialGoal,
 } from '../types/goal'
 
 const Goals = () => {

@@ -11,7 +11,7 @@ import {
 import { useLanguage } from '../i18n'
 import { useAppSelector, useAppDispatch } from '../store/hooks'
 import { upgradePlan, startTrial, renewSubscription } from '../store/subscriptionSlice'
-import { SUBSCRIPTION_PLANS, PlanType } from '../types/subscription'
+import { SUBSCRIPTION_PLANS, type PlanType } from '../types/subscription'
 
 export const Pricing = () => {
   const { t, currentLanguage } = useLanguage()

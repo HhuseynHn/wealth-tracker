@@ -27,7 +27,7 @@ import { getCategoryInfo } from '../types/transaction'
 const Reports = () => {
   const { t, currentLanguage } = useLanguage()
   const { chartColors, resolvedTheme } = useTheme()
-  const stats = useAppSelector(selectTransactionStats)
+  // const stats = useAppSelector(selectTransactionStats)
   const categoryStats = useAppSelector(selectCategoryStats)
   const [dateRange, setDateRange] = useState('thisYear')
 
@@ -47,7 +47,7 @@ const Reports = () => {
       return seedValue / 233280
     }
     
-    return months.slice(0, 11).map((month, i) => ({
+    return months.slice(0, 11).map((month) => ({
       name: month,
       [currentLanguage === 'az' ? 'gəlir' : 'income']: Math.floor(seededRandom() * 3000) + 5000,
       [currentLanguage === 'az' ? 'xərc' : 'expense']: Math.floor(seededRandom() * 2000) + 3000,
@@ -196,7 +196,7 @@ const Reports = () => {
                   }}
                   labelStyle={{ color: chartColors.tooltipText }}
                   itemStyle={{ color: chartColors.tooltipText }}
-                  formatter={(value: number) => [`₼${value.toLocaleString()}`, '']}
+                  formatter={(value: number | undefined) => [`₼${(value ?? 0).toLocaleString()}`, '']}
                 />
                 <Bar dataKey={incomeKey} fill="#3b82f6" radius={[4, 4, 0, 0]} />
                 <Bar dataKey={expenseKey} fill="#f87171" radius={[4, 4, 0, 0]} />
@@ -245,7 +245,7 @@ const Reports = () => {
                   }}
                   labelStyle={{ color: chartColors.tooltipText }}
                   itemStyle={{ color: chartColors.tooltipText }}
-                  formatter={(value: number) => [`₼${value.toLocaleString()}`, t.reports.savings]}
+                  formatter={(value: number | undefined) => [`₼${(value ?? 0).toLocaleString()}`, t.reports.savings]}
                 />
                 <Line
                   type="monotone"
@@ -292,7 +292,7 @@ const Reports = () => {
                         color: chartColors.tooltipText,
                       }}
                       itemStyle={{ color: chartColors.tooltipText }}
-                      formatter={(value: number) => [`₼${value.toLocaleString()}`, '']}
+                      formatter={(value: number | undefined) => [`₼${(value ?? 0).toLocaleString()}`, '']}
                     />
                   </PieChart>
                 </ResponsiveContainer>

@@ -21,7 +21,7 @@ import {
   selectFilteredTransactions,
   selectTransactionStats,
 } from '../store/transactionSlice'
-import { CATEGORIES, getCategoryInfo, TransactionCategory, TransactionType, Transaction } from '../types/transaction'
+import { CATEGORIES, getCategoryInfo, type TransactionCategory, type TransactionType, type Transaction } from '../types/transaction'
 // import { sendNotification } from '../utils/demoNotifications'
 
 const Transactions = () => {
