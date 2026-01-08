@@ -8,7 +8,7 @@ import {
   TrashIcon,
   XMarkIcon,
 } from '@heroicons/react/24/outline'
-import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, AreaChart, Area, XAxis, YAxis } from 'recharts'
+import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, AreaChart, Area } from 'recharts'
 import { useLanguage } from '../i18n'
 import { useAppDispatch, useAppSelector } from '../store/hooks'
 import { useTheme } from '../hooks'
@@ -21,7 +21,7 @@ import {
 import { POPULAR_CRYPTOS } from '../types/crypto'
 
 const Investments = () => {
-  const { t, currentLanguage } = useLanguage()
+  const { t } = useLanguage()
   const { chartColors, resolvedTheme } = useTheme()
   const dispatch = useAppDispatch()
   const cryptoAssets = useAppSelector(selectCryptoAssets)
@@ -208,8 +208,8 @@ const Investments = () => {
                         color: chartColors.tooltipText,
                       }}
                       itemStyle={{ color: chartColors.tooltipText }}
-                      formatter={(value: number) => [
-                        `$${value.toLocaleString(undefined, { maximumFractionDigits: 2 })}`,
+                      formatter={(value: number | undefined) => [
+                        `$${(value ?? 0).toLocaleString(undefined, { maximumFractionDigits: 2 })}`,
                         '',
                       ]}
                     />
@@ -246,7 +246,7 @@ const Investments = () => {
           {cryptoAssets.length > 0 ? (
             <div className="space-y-3">
               {cryptoAssets.map((asset, index) => {
-                const { price, change } = getPriceData(asset.symbol)
+                const { price } = getPriceData(asset.symbol)
                 const currentValue = asset.amount * price
                 const invested = asset.amount * asset.purchasePrice
                 const profitLoss = currentValue - invested
@@ -369,7 +369,7 @@ const Investments = () => {
                       {coin.sparkline_in_7d && (
                         <div className="w-24 h-10 ml-auto">
                           <ResponsiveContainer width="100%" height="100%">
-                            <AreaChart data={coin.sparkline_in_7d.price.slice(-24).map((p, i) => ({ v: p }))}>
+                            <AreaChart data={coin.sparkline_in_7d.price.slice(-24).map((p) => ({ v: p }))}>
                               <Area
                                 type="monotone"
                                 dataKey="v"

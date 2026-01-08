@@ -12,28 +12,6 @@
   import ThemeEffect from "./components/common/ThemeEffect"
 
 
-  // Sync theme with system preference
-  // const ThemeSync = () => {
-  //   useEffect(() => {
-  //     const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
-  //     const handleChange = () => {
-  //       const theme = localStorage.getItem('wt_theme')
-  //       if (theme === 'system') {
-  //         const html = document.documentElement
-  //         html.classList.remove('light', 'dark')
-  //         html.classList.add(mediaQuery.matches ? 'dark' : 'light')
-  //       }
-  //     }
-  //     console.log("THEMM")
-      
-  //     mediaQuery.addEventListener('change', handleChange)
-  //     return () => mediaQuery.removeEventListener('change', handleChange)
-  //   }, [])
-    
-  //   return null
-  // }
-
-
   const ThemeSync = () => {
     const dispatch = useAppDispatch()
   console.log("TemSync")
@@ -48,20 +26,11 @@
     return null
   }
 
-
-
-
-
-
-
-
   function App() {
 
     
-    return (
-      
-      
-      <>
+    return (  
+            <>
       
         <Provider store={store}> 
       

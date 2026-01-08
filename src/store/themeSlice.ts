@@ -125,12 +125,12 @@
 // export default themeSlice.reducer;
 
 
-import { createSlice, PayloadAction } from "@reduxjs/toolkit"
-import { Theme } from "../types/settings"
+import { createSlice, type PayloadAction } from "@reduxjs/toolkit"
+import type { Theme } from "../types/settings"
 
-interface ThemeState {
+export interface ThemeState {
   theme: Theme
-    resolvedTheme: "light" | "dark"
+  resolvedTheme: "light" | "dark"
 }
 
 // system theme

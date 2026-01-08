@@ -1,5 +1,6 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { SubscriptionState, PlanType, ProFeatures, FREE_FEATURES, PRO_FEATURES, ENTERPRISE_FEATURES } from '../types/subscription'
+import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
+import type { SubscriptionState, PlanType, ProFeatures } from '../types/subscription'
+import { FREE_FEATURES, PRO_FEATURES, ENTERPRISE_FEATURES } from '../types/subscription'
 
 // Get features by plan
 const getFeaturesByPlan = (plan: PlanType): ProFeatures => {

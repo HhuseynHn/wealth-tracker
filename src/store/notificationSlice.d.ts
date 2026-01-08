@@ -1,0 +1,5 @@
+import type { NotificationState, CreateNotificationDTO } from '../types/notification';
+export declare const addNotification: import("@reduxjs/toolkit").ActionCreatorWithPayload<CreateNotificationDTO, "notifications/addNotification">, removeNotification: import("@reduxjs/toolkit").ActionCreatorWithPayload<string, "notifications/removeNotification">, markAsRead: import("@reduxjs/toolkit").ActionCreatorWithPayload<string, "notifications/markAsRead">, markAllAsRead: import("@reduxjs/toolkit").ActionCreatorWithoutPayload<"notifications/markAllAsRead">, clearAllNotifications: import("@reduxjs/toolkit").ActionCreatorWithoutPayload<"notifications/clearAllNotifications">, clearOldNotifications: import("@reduxjs/toolkit").ActionCreatorWithoutPayload<"notifications/clearOldNotifications">;
+declare const _default: import("redux").Reducer<NotificationState>;
+export default _default;
+//# sourceMappingURL=notificationSlice.d.ts.map

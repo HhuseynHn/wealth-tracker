@@ -1,5 +1,6 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { SettingsState, AppSettings, UserProfile, DEFAULT_SETTINGS, Theme, Currency, DateFormat, NumberFormat } from '../types/settings'
+import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
+import type { SettingsState, AppSettings, UserProfile, Theme, Currency, DateFormat, NumberFormat } from '../types/settings'
+import { DEFAULT_SETTINGS } from '../types/settings'
 
 // Load settings from localStorage
 const loadSettings = (): AppSettings => {

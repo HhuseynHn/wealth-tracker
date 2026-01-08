@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
 import type { CryptoState, CryptoAsset, AddCryptoDTO, UpdateCryptoDTO } from '../types/crypto'
 
 // Storage key
